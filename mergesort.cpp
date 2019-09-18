@@ -18,6 +18,12 @@ int main() {
     vector<int> t(length);  // temporary workspace
     // unit test for merge
 
+    vector <int> a{10,4,6,1};
+    vector <int> b(4);
+    mergeSort(a,b,0,a.size()-1);
+    for(int i = 1; i < v.size(); i++) {
+        assert (v.at(i-1) <= v.at(i));
+    }
 
     /* your code here */
 
