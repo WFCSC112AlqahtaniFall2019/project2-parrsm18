@@ -11,22 +11,20 @@ int main() {
 
     // get input: first is random seed, second is vector length
     int seed, length;
+    cout << "Enter seed value and length of array." << endl;
     cin >> seed >> length;
     srand(seed);
 
     vector<int> v(length);  // vector to be sorted
     vector<int> t(length);  // temporary workspace
-    // unit test for merge
 
+    // unit test for merge
     vector <int> a{10,4,6,1};
     vector <int> b(4);
     mergeSort(a,b,0,a.size()-1);
     for(int i = 1; i < v.size(); i++) {
         assert (v.at(i-1) <= v.at(i));
     }
-
-    /* your code here */
-
 
     // initialize and print input
     for(int i = 0; i < v.size(); i++) {
@@ -55,15 +53,14 @@ int main() {
 // mergesortedlists adds them up together
 
 void mergeSort(vector<int>& a, vector<int>& tmp, int left, int right){
-    if (right <= left){
+    if (right <= left){ //Base case
         return;
     }
     else {
         int midpoint = (right + left) / 2;
-        mergeSort(a, tmp, left, midpoint);
-        mergeSort(a, tmp, midpoint + 1, right);
-        mergeSortedLists(a, tmp, left, midpoint, right);
-
+        mergeSort(a, tmp, left, midpoint); // Sorts the left half of list
+        mergeSort(a, tmp, midpoint + 1, right); // Sorts the right half of list
+        mergeSortedLists(a, tmp, left, midpoint, right); // Merges list back together
     }
 }
 
@@ -93,9 +90,7 @@ void mergeSortedLists(vector<int>& a, vector<int>& tmp, int left, int middle, in
         temp++;
         tempLeft++;
     }
-    for (int i = left; i <= right; i++){
+    for (int i = left; i <= right; i++){ // Copies the sorted vector in temp to a
         a.at(i) = tmp.at(i);
     }
 }
-
-/* your code here */
