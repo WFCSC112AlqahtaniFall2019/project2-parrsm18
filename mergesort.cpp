@@ -68,7 +68,7 @@ void mergeSortedLists(vector<int>& a, vector<int>& tmp, int left, int middle, in
     int temp = left;
     int tempLeft = left;
     int tempRight = middle + 1;
-    while (tempLeft <= middle && tempRight <= right){
+    while (tempLeft <= middle && tempRight <= right){ // Sorts both halves of list
         if(a.at(tempLeft) > a.at(tempRight)){
             tmp.at(temp) = a.at(tempRight);
             temp++;
@@ -80,12 +80,12 @@ void mergeSortedLists(vector<int>& a, vector<int>& tmp, int left, int middle, in
             tempLeft++;
         }
     }
-    while (tempRight <= right){
+    while (tempRight <= right){ // Sorts remainder of right side of list
         tmp.at(temp) = a.at(tempRight);
         temp++;
         tempRight++;
     }
-    while (tempLeft <= middle){
+    while (tempLeft <= middle){ // Sorts remainder of left side of list
         tmp.at(temp) = a.at(tempLeft);
         temp++;
         tempLeft++;
